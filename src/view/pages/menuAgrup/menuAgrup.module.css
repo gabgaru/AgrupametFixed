@@ -1,0 +1,166 @@
+.group_card {
+    display: flex;
+    flex-direction: row;
+    margin-top: 90px;
+    margin-left: 190px;
+    margin-bottom: 90px;
+    margin-right: 190px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.card {
+    width: 290px;
+    height: 175px;
+    background-color: rgb(255, 167, 59);
+    margin: 35px;
+    padding: 45px;
+    border-radius: 20px;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+
+}
+
+.card_title {
+  
+    font-size: 35px;
+    color: #FFFF;
+    text-align: center;
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_info {
+    background-color: transparent;
+    border: transparent;
+    color: #FFFF;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 37%;
+    
+}
+
+
+.search {
+    width: 549.62px;
+    height: 25px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 3%;
+    right: 30%;
+    z-index: 150;
+}
+
+.btn_newG{
+    background-color: transparent;
+    width: 52px;
+    height: 53px;
+    position: absolute;
+    border-radius: 50px;
+    border: 3px solid #FFFF;
+    align-items: center;
+    top: 3%;
+    right: 20%;
+    cursor: pointer;
+
+}
+
+.btn_newG:hover{
+    background-color: rgb(59, 108, 138);
+}
+.mas{
+    margin: 7px;
+    width: 16px;
+
+}
+
+@media (max-width: 1240px) {
+ .btn_newG{
+    right: 25%;
+ }
+
+}
+
+@media (max-width: 1110px) {
+    .btn_newG{
+       right: 10%;
+    }
+   
+   }
+@media (max-width: 922px) {
+    .btn_newG{
+        right: 22%;
+    }
+
+}
+@media (max-width: 800px) {
+
+    .btn_newG{
+        right: 13%;
+    }
+    .group_card {
+        flex-direction: column;
+        width: 160px;
+
+
+
+    }
+
+    .card {
+        width: 100%;
+        margin: 20px;
+        margin-right: 10px;
+    }
+
+    .search {
+        width: 200px;
+        right: 20%;
+    }
+
+ 
+}
+
+@media (max-width: 1148px) {
+    .search {
+        width: 400.62px;
+    }
+
+}
+
+@media (max-width: 722px) {
+    .search {
+        width: 200px;
+        left:25%;
+
+
+    }
+}
+@media (max-width: 670px) {
+    .btn_newG{
+        right: 26%;
+    }
+
+}
+@media (max-width: 578px) {
+    .search {
+        width: 80px;
+        right: 35%;
+    }
+
+    .card {
+        margin-left: 0px;
+    }
+
+    .group_card {
+        margin-left: 70px;
+    }
+
+}

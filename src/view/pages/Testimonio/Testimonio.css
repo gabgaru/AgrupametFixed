@@ -1,0 +1,55 @@
+.testimony{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+
+}
+
+.input_testimonio{
+    width: 500px;
+    height: 300px;
+    
+    text-align: left ;
+    margin: 10px;
+
+}
+
+
+.botones_t{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 300px;
+    
+    
+}
+
+.canceled{
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+
+}
+
+@media (max-width: 880px) {
+    .testimony{
+        margin: 150px;
+    }
+
+}
+
+@media (max-width: 556px) {
+    .input_testimonio{
+        width: 250px;
+        height: 150px;
+    
+    }
+    .botones_t{
+        margin-left:10px ;
+    }
+
+}

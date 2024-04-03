@@ -1,0 +1,62 @@
+.Footer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2F4858;
+    margin-top: 64px;
+}
+
+.footer-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoFooter {
+    width: 170px;
+    height: 75px;
+    flex-shrink: 0;
+}
+
+.nav-footer {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-title {
+    color: #FFF;
+    font-family: "Red Hat Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0;
+    margin: 12px 0px;
+    text-align: right;
+}
+
+.contact-footer {
+    color: #FFF;
+    text-align: center;
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 10px;
+}
+
+.icon-text {
+    display: flex;
+}
+
+@media screen and (max-width =500px) {
+    .contact-footer{
+        font-size: 6px;
+        
+    }
+    
+}

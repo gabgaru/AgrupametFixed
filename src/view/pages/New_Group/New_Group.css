@@ -1,0 +1,24 @@
+.newG_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px ;
+    height: 594px;
+    
+    margin-left: 550px;
+    align-items: center;
+    
+}
+#ti{
+    margin-left: 25%;
+    margin-top: 50px;
+}
+.input2{
+    width: 285px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #FFFF;
+    border: none;
+    margin: 15px;
+    padding: 3px;
+}

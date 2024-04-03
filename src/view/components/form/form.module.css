@@ -1,0 +1,44 @@
+input {
+    border: none;
+    border-radius: 20px;
+    box-shadow: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #fff;
+    width: 100%;
+    margin: 0px 0px 0px -7px;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+input::placeholder {
+    opacity: 0.3;
+}
+
+.input_icon {
+    opacity: 0.3;
+    margin: 8px 17px 8px 17px;
+}
+
+.label {
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0.25px;
+    margin-bottom: 9px;
+}
+
+.input_wrapp {
+    margin-top: 9.5px 0px;
+}

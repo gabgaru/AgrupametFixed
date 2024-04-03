@@ -1,0 +1,108 @@
+.Register {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.container {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+
+}
+
+.register_form {
+    width: 400px;
+
+}
+
+.title {
+    width: 100%;
+    text-align: left;
+    font-family: "Red Hat Display";
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 27px 0px;
+}
+
+.forgot {
+    width: 400px;
+    text-align: end;
+    color: #FF7A00;
+    font-family: "Red Hat Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0.25px;
+    margin: 21px 0px;
+}
+
+button.send {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    align-items: center;
+    margin: 26px 0px;
+
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background: #FD8204;
+    color: #F4F2EF;
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+.banner {
+    flex-basis: 50%;
+}
+
+.university_image {
+    object-fit: cover;
+    width: 50vw;
+    height: 100%;
+    display: block;
+}
+
+.error_message {
+    color: red;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-basis: 100%;
+    }
+
+    div.banner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        flex-basis: 100%;
+    }
+
+    .register_form {
+        width: 100% !important;
+    }
+
+    div.banner {
+        display: none;
+    }
+}

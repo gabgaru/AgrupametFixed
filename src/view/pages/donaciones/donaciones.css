@@ -1,0 +1,105 @@
+.imagen {
+    display: flex;
+}
+
+.foto {
+    position: relative;
+    z-index: -1;
+    height: 90vh;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: center 65%;
+}
+
+.title {
+    position: absolute;
+    bottom: 25%;
+    top: 45%;
+    right: 39%;
+    font-size: 70px;
+    color: #fff;
+}
+
+.contenedor_donaciones {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -15px;
+}
+
+.texto {
+    margin: 70px 0 30px 0;
+    color: #000;
+    text-align: justify;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 50%;
+}
+
+.donaciones_form {
+    width: 400px;
+    margin-top: 20px;
+}
+
+button.send {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    align-items: center;
+    margin: 26px 0px;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background: #FD8204;
+    color: #F4F2EF;
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 50px;
+        right: 30%;
+    }
+
+    .texto {
+        width: 70%;
+    }
+
+    .donaciones_form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .foto {
+        height: 70vh;
+    }
+
+    .title {
+        font-size: 40px;
+        bottom: 20%;
+        top: 40%;
+        right: 25%;
+    }
+
+    .texto {
+        width: 80%;
+    }
+
+    .donaciones_form {
+        width: 95%;
+    }
+}

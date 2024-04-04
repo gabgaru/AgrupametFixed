@@ -29,3 +29,13 @@ button.create{
     letter-spacing: 0.25px;
     cursor: pointer;
 }
+
+.input2{
+    width: 285px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #FFFF;
+    border: none;
+    margin: 15px;
+    padding: 3px;
+}

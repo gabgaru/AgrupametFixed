@@ -8,7 +8,7 @@ import Agrupacion from "./view/pages/agrupacion/agrupacion";
 import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import Perfil from "./view/pages/Perfil/Perfil";
 import CategoriesDash from "./view/pages/dashboard/categoriesDash";
-import NewCategory from "./view/pages/dashboard/newCategory";
+import NewCategory from "./view/pages/newCategory/newCategory";
 import Donaciones from "./view/pages/donaciones/donaciones";
 import Testimonio from "./view/pages/Testimonio/Testimonio";
 import New_Group from "./view/pages/New_Group/New_Group";
@@ -45,6 +45,16 @@ function App() {
         <Route exact path="/register" element={<Register user={user} />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/dashboard/:id" element={<CategoriesDash />} />
+        <Route exact path="/newCategory/:id" element={<NewCategory user={user}/>} />
+        <Route
+          exact
+          path="/newCategory"
+          element={
+            <ProtectedRouteMenu user={user}>
+              <NewCategory />
+            </ProtectedRouteMenu>
+          }
+        />
         <Route
           exact
           path="/menuAgrup"

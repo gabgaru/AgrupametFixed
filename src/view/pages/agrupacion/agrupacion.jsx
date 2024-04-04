@@ -10,8 +10,10 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import authService from "../../../controller/services/AuthService";
 import Controlador from "../../../controller/controller";
+
 export default function Agrupacion() {
   const [agrupacion, setAgrupacion] = useState(null);
+  const [unido, setUnido] = useState(false); 
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -34,23 +36,17 @@ export default function Agrupacion() {
     navigate(`/testimonio/${item.id}`);
   };
 
-  if (!agrupacion) {
-    return <div></div>;
-  }
-
-  /*const [unido,Set_unido] = useState(false);
-  const text = unido ? "Desunirse" : "Unete";
-  const buttomClassName= unido ? "btns_" : "btns_ unido" ;
-    const handleClick = () => {
-      Set_unido(!unido)
-    }
-*/
   const handleClick = () => {
+    setUnido(!unido); 
     console.log("BotonFurula");
     console.log("Esto es el id: ",id);
     console.log("Este es el user: ",authService.getCurrentUser())
     Controlador.joinmember(authService.getCurrentUser().uid,id);
   };
+
+  if (!agrupacion) {
+    return <div></div>;
+  }
 
   return (
     <div>
@@ -78,7 +74,7 @@ export default function Agrupacion() {
           </button>
           <button className="btns_" onClick={handleClick}>
             {" "}
-            <strong> Unirse</strong>
+            <strong>{unido ? 'Salir' : 'Unirse'}</strong> {}
           </button>
         </div>
         <div style={{ marginBottom: "15px" }}>

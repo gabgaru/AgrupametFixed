@@ -20,7 +20,7 @@ export default function MenuAgrup() {
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [administrador, setAdministrador] = useState(null);
+  //const [administrador, setAdministrador] = useState(null);
 
   const navigate = useNavigate();
 
@@ -55,13 +55,15 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
   //Empieza el desastre
+  /*
   console.log(authService.getAdminStatus());
 
   console.log("Acaben con esta sufridera porfa: ",authService.getAdminStatus());
   const handleAdmin = (e) => {
     setAdministrador(authService.getAdminStatus());
     console.log("Acaben con esta sufridera porfa: ",authService.getAdminStatus());
-  };
+  };*/
+  const administrador = true;
   //termina el desastre
   return (
     <div>

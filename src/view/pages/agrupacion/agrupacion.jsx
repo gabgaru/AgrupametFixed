@@ -40,8 +40,14 @@ export default function Agrupacion() {
     setUnido(!unido); 
     console.log("BotonFurula");
     console.log("Esto es el id: ",id);
-    console.log("Este es el user: ",authService.getCurrentUser())
-    Controlador.joinmember(authService.getCurrentUser().uid,id);
+    if (unido){
+      console.log("Este es el user: ",authService.getCurrentUser())
+      Controlador.joinmember(authService.getCurrentUser().uid,id);
+    }else{
+      console.log("Este es el user: ",authService.getCurrentUser())
+      Controlador.deletememeber(authService.getCurrentUser().uid,id);
+    }
+    
   };
 
   if (!agrupacion) {

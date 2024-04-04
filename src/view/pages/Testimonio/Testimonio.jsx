@@ -32,8 +32,8 @@ export default function Testimonio() {
 
   const addTestimonio = async (id, testimonyString) => {
     try {
-      await updateDoc(agrupacion, {
-        Testimonios: arrayUnion(testimonyString), // Assuming "Testimonios" is the correct field name
+      await updateDoc(doc(db, "Agrupaciones", id), {
+        testimonios: arrayUnion(testimonyString), // Assuming "Testimonios" is the correct field name
       });
       console.log("Testimony added successfully!");
     } catch (error) {
@@ -41,10 +41,11 @@ export default function Testimonio() {
     }
   };
 
-  const agregar = () => {
+  const add = () => {
     if (testimony) {
       // Check if testimony is not empty
       addTestimonio(id, testimony);
+      navigate(`/agrupacion/${id}`);
     }
   };
 
@@ -69,7 +70,7 @@ export default function Testimonio() {
           <button className="canceled" onClick={cancelar}>
             Cancelar
           </button>
-          <button className="btns_" onClick={agregar}>
+          <button className="btns_" onClick={add}>
             Agregar
           </button>
         </div>

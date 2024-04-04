@@ -13,10 +13,10 @@ export default function Perfil() {
     const [userEmail, setUserEmail] = useState(null);
     const [userPhone, setuserPhone] = useState(null);
     const [usercarrera, setCarrera] = useState(null);
-
+    const [birthday, setbirthday] = useState(null);
     const handleSubmit = () => {
         // Aquí puedes usar los valores
-        Controlador.updateUser(authService.getCurrentUser().uid,userName,userEmail,userPhone,usercarrera);
+        Controlador.updateUser(authService.getCurrentUser().uid,userName,userEmail,userPhone,usercarrera,birthday);
       };
 
     const handleNameChange = (e) => {
@@ -34,6 +34,10 @@ export default function Perfil() {
     const handeCarreraChange = (e) => {
         setCarrera(e.target.value);
     }
+
+    const handlebirthday = (e) => {
+        setbirthday(e.target.value);
+    };
 
     useEffect(() => {
         async function fetchName() {
@@ -64,13 +68,37 @@ export default function Perfil() {
     useEffect(() => {
         async function fetchEmail() {
             try {
+                const email = await authService.getEmail();
+                setUserEmail(email);
+            } catch (error) {
+                console.error('Error fetching user email:', error);
+            }
+        }
+        fetchEmail();
+    }, []);
+
+    useEffect(() => {
+        async function fetchbirthday() {
+            try {
+                const birthday = await authService.getbirthday();
+                setbirthday(birthday);
+            } catch (error) {
+                console.error('Error fetching user email:', error);
+            }
+        }
+        fetchbirthday();
+    }, []);
+
+    useEffect(() => {
+        async function fetchCarrera() {
+            try {
                 const carrera = await authService.getCarrera();
                 setCarrera(carrera);
             } catch (error) {
                 console.error('Error fetching user email:', error);
             }
         }
-        fetchEmail();
+        fetchCarrera();
     }, []);
 
     useEffect(() => {
@@ -95,7 +123,7 @@ export default function Perfil() {
             <h4 className='t'>{userName}</h4>
             <div>__________________________________</div>
             <h5>Correo electronico: {userEmail}</h5>
-            <h5>Fecha de Nacimiento: </h5>
+            <h5>Fecha de Nacimiento: {birthday}</h5>
             <h5>Agrupaciones a las que pertenezco: </h5>
         </div>
         
@@ -116,7 +144,7 @@ export default function Perfil() {
                 <input className= 'input' type='email' value={userEmail} onChange={handleEmailChange}/>
             </label>
             <label>Fecha de Nacimiento 
-                <input className= 'input' type='date' />
+                <input className= 'input' type='date' value={birthday} onChange={handlebirthday}/>
             </label>
             </div>
             <button className='btn_edit' onClick={handleSubmit}> Actualizar </button>

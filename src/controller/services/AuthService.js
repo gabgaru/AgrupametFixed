@@ -58,6 +58,7 @@ class AuthService {
                     phoneNumber: user.phoneNumber != null ? user.phoneNumber : null,
                     BelongsTo: [],
                     IsAdmin: false,
+                    birthday: "",
                 })
             } else {
                 console.log("The user already exists");
@@ -145,6 +146,21 @@ class AuthService {
         if (docSnap.exists()) {
             const userData = docSnap.data();
             return userData.email;
+        } else {
+            console.log("No such document!");
+        }
+    }
+
+    getbirthday = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            return userData.birthday;
         } else {
             console.log("No such document!");
         }

@@ -5,7 +5,7 @@ class Controller{
     }
     
     //Todos los parámetros deben ser strings a excepción del "Float"
-    async updateUser(UseruId,Nombre,Email,Number,carrera){
+    async updateUser(UseruId,Nombre,Email,Number,carrera,Birthday){
         const Usuario = doc(db,"users",UseruId);
         console.log("Carrera elegida: ",carrera); 
         await updateDoc(Usuario,{
@@ -13,6 +13,7 @@ class Controller{
             email: Email,
             phoneNumber: Number,
             Carrera: carrera,
+            birthday: Birthday,
         });
         console.log("Comando 'actualizar perfil' ejecutado");
     }

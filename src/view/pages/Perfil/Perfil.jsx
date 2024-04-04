@@ -5,12 +5,19 @@ import person_icon from '../../assets/person.svg';
 import React from 'react'
 import authService from '../../../controller/services/AuthService';
 import { useState, useEffect } from 'react';
+import Controlador from '../../../controller/controller';
 
 export default function Perfil() {
 
     const [userName, setUserName] = useState(null);
     const [userEmail, setUserEmail] = useState(null);
     const [userPhone, setuserPhone] = useState(null);
+    const [usercarrera, setCarrera] = useState(null);
+
+    const handleSubmit = () => {
+        // Aquí puedes usar los valores
+        Controlador.updateUser(authService.getCurrentUser().uid,userName,userEmail,userPhone,usercarrera);
+      };
 
     const handleNameChange = (e) => {
         setUserName(e.target.value);
@@ -23,6 +30,10 @@ export default function Perfil() {
     const handleEmailChange = (e) => {
         setUserEmail(e.target.value);
     };
+
+    const handeCarreraChange = (e) => {
+        setCarrera(e.target.value);
+    }
 
     useEffect(() => {
         async function fetchName() {
@@ -50,6 +61,17 @@ export default function Perfil() {
         fetchEmail();
     }, []);
 
+    useEffect(() => {
+        async function fetchEmail() {
+            try {
+                const carrera = await authService.getCarrera();
+                setCarrera(carrera);
+            } catch (error) {
+                console.error('Error fetching user email:', error);
+            }
+        }
+        fetchEmail();
+    }, []);
 
     useEffect(() => {
         async function fetchPhone() {
@@ -86,7 +108,7 @@ export default function Perfil() {
                 <input className= 'input' type='text' value={userPhone} onChange={handlePhoneChange}/>
             </label>
             <label>Carrera
-                <input className= 'input' type='text' />
+                <input className= 'input' type='text' value={usercarrera} onChange={handeCarreraChange} />
             </label>
             </div>
             <div className='c'>
@@ -97,7 +119,7 @@ export default function Perfil() {
                 <input className= 'input' type='date' />
             </label>
             </div>
-            <button className='btn_edit'> Actualizar </button>
+            <button className='btn_edit' onClick={handleSubmit}> Actualizar </button>
             </div>    
     </div>
     <Footer2></Footer2>

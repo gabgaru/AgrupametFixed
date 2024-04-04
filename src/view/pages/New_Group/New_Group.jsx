@@ -4,7 +4,7 @@ import Header2 from '../../components/Header2/Header2';
 import SystemAdmin from '../../../model/Admin';
 const New_Group = () => {
 
-    const [nombre, setNombre] = useState('');
+  const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [instagram, setInstagram] = useState('');
   const [telefono, setTelefono] = useState('');

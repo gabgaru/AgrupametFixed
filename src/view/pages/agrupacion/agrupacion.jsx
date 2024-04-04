@@ -47,9 +47,9 @@ export default function Agrupacion() {
 */
   const handleClick = () => {
     console.log("BotonFurula");
-    const usuario = authService.getCurrentUser();
-    const agrupacion = id;
-    Controlador.joinmember(usuario,agrupacion);
+    console.log("Esto es el id: ",id);
+    console.log("Este es el user: ",authService.getCurrentUser())
+    Controlador.joinmember(authService.getCurrentUser().uid,id);
   };
 
   return (

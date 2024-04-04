@@ -37,6 +37,7 @@ class AuthService {
                 phoneNumber: phone,
                 BelongsTo: [],
                 IsAdmin: false,
+                Carrera: "",
             })
         } catch (error) {
             console.error('Error signing up:', error);
@@ -103,6 +104,7 @@ class AuthService {
     getCurrentUser() {
         return this.auth.currentUser;
     }
+    
 
     getUserData = async () => {
         const user = authService.getCurrentUser()?.uid;
@@ -163,6 +165,21 @@ class AuthService {
         }
     }
 
+    getCarrera = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            return userData.Carrera;
+        } else {
+            console.log("No such document!");
+        }
+    }
+
     getAdminStatus = async () => {
         const user = authService.getCurrentUser()?.uid;
         console.log(user)
@@ -178,6 +195,7 @@ class AuthService {
             console.log("No such document!");
         }
     }
+    
 }
 
 const authService = new AuthService();

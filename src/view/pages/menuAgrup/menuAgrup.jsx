@@ -15,11 +15,12 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
 import authService from "../../../controller/services/AuthService";
-
+var num =1;
 export default function MenuAgrup() {
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [administrador, setAdministrador] = useState(null);
 
   const navigate = useNavigate();
 
@@ -53,9 +54,15 @@ export default function MenuAgrup() {
   if (!items || items.length === 0) {
     return <div>Loading...</div>;
   }
+  //Empieza el desastre
+  console.log(authService.getAdminStatus());
 
-  const administrador = authService.getAdminStatus(); 
-
+  console.log("Acaben con esta sufridera porfa: ",authService.getAdminStatus());
+  const handleAdmin = (e) => {
+    setAdministrador(authService.getAdminStatus());
+    console.log("Acaben con esta sufridera porfa: ",authService.getAdminStatus());
+  };
+  //termina el desastre
   return (
     <div>
       <Header2 />
@@ -90,6 +97,7 @@ export default function MenuAgrup() {
           </li>
         ))}
       </ul>
+      {/* Aquí está la parte que se muestra cuando "administrador" es true */}
       {administrador && (
         <Link to="/New_Group">
           <button className={style.btn_newG}>

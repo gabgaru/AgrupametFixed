@@ -5,10 +5,23 @@ class Controller{
     }
     
     //Todos los parámetros deben ser strings a excepción del "Float"
-
-    async joinmember(UseruId,AgId){
-        const Agrupacion = doc(db,"Agrupaciones",AgId);
+    async updateUser(UseruId,Nombre,Email,Number,carrera){
         const Usuario = doc(db,"users",UseruId);
+        console.log("Carrera elegida: ",carrera); 
+        await updateDoc(Usuario,{
+            name: Nombre,
+            email: Email,
+            phoneNumber: Number,
+            Carrera: carrera,
+        });
+        console.log("Comando 'actualizar perfil' ejecutado");
+    }
+    async joinmember(UseruId,AgId){
+        console.log("Comando 'unirse' ha sido ejecutado");
+        const Agrupacion = doc(db,"Agrupaciones",AgId);
+        console.log("se delcaro agrupacion");
+        const Usuario = doc(db,"users",UseruId);
+        console.log("se delcaro usuario");
         await updateDoc(Agrupacion,{
             Members: arrayUnion(UseruId),
         });
